@@ -1,0 +1,2 @@
+c:\users\lguimaraes\documents\visual studio 2015\Projects\product-inventory\product-inventory\bin\Debug\product-inventory.exe.config
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\product-inventory.exe.config
