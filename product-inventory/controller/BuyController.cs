@@ -8,7 +8,7 @@ namespace product_inventory.controller
 {
     public class BuyController
     {
-        ProductDAO productdao = new ProductDAO();
+        //ProductDAO productdao = new ProductDAO();
 
         public bool AddProduct()
         {

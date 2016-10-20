@@ -3,7 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "product-inventory", "product-inventory\product-inventory.csproj", "{8AA24F5E-851B-4C92-9880-EA4C3BB77332}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "product_inventory", "product-inventory\product_inventory.csproj", "{8AA24F5E-851B-4C92-9880-EA4C3BB77332}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FF44FFB8-5366-48BC-8BC4-3FB39B0EA232} = {FF44FFB8-5366-48BC-8BC4-3FB39B0EA232}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product.Invetory.Dao", "Product.Invetory.Dao\Product.Invetory.Dao.csproj", "{FF44FFB8-5366-48BC-8BC4-3FB39B0EA232}"
 EndProject
