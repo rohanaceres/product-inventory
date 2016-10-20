@@ -10,13 +10,13 @@ namespace product_inventory.controller
     {
         ProductDAO productdao = new ProductDAO();
 
-        public bool addProduct()
+        public bool AddProduct()
         {
 
             return false;
 
         }
-        public bool buyProducts()
+        public bool BuyProducts()
         {
             return false;
         }
