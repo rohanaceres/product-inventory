@@ -28,8 +28,7 @@ namespace product_inventory
         // initialize comboBox 
         public void Initializer()
         {
-            cBProducts.Items.Add()
-        }
+                    }
 
     }
 }

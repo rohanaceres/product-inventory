@@ -9,6 +9,6 @@ namespace product_inventory
     public class Client
     {
         public string Name { get; set; }
-        public string address { get; set; }
+        public string Address { get; set; }
     }
 }
