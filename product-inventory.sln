@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "product_inventory", "produc
 		{FF44FFB8-5366-48BC-8BC4-3FB39B0EA232} = {FF44FFB8-5366-48BC-8BC4-3FB39B0EA232}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product.Invetory.Dao", "Product.Invetory.Dao\Product.Invetory.Dao.csproj", "{FF44FFB8-5366-48BC-8BC4-3FB39B0EA232}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product.Inventory.Dao", "Product.Invetory.Dao\Product.Inventory.Dao.csproj", "{FF44FFB8-5366-48BC-8BC4-3FB39B0EA232}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

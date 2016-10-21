@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Product.Invetory.Dao.models.dao
+namespace Product.Inventory.Dao.models.dao
 {
     public class ProductDao : AbstractDao
     {

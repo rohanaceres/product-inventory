@@ -15,3 +15,5 @@ C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\obj\
 C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\obj\Debug\MainWindow.g.cs
 C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\obj\Debug\MainWindow.baml
 C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\obj\Debug\product_inventory.csprojResolveAssemblyReference.cache
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\Product.Invetory.Dao.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\Product.Invetory.Dao.pdb
