@@ -3,3 +3,11 @@ C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\o
 C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\obj\Debug\Product.Invetory.Dao.pdb
 C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\Product.Invetory.Dao.dll
 C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\Product.Invetory.Dao.pdb
+C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\bin\Debug\Product.Invetory.Dao.dll
+C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\bin\Debug\Product.Invetory.Dao.pdb
+C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\obj\Debug\Product.Inventory.Dao.csprojResolveAssemblyReference.cache
+C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\obj\Debug\Product.Invetory.Dao.dll
+C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\obj\Debug\Product.Invetory.Dao.pdb
+C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\bin\Debug\ProductInventoryDB.mdf
+C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\bin\Debug\ProductInventoryDB_log.ldf
+C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\bin\Debug\Product.Invetory.Dao.dll.config
