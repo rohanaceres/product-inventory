@@ -8,6 +8,8 @@ namespace product_inventory.controller
 {
     public abstract class AbstractController
     {
+        MainWindow mainView;
+
         
     }
 }

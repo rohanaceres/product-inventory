@@ -22,12 +22,14 @@ namespace product_inventory
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         BuyController buyController;
         public MainWindow()
         {
             InitializeComponent();
             this.Initializer();
             //this.Products = new Dictionary<ProductModel, long>();
+            
             buyController = new BuyController(this);
         }
         

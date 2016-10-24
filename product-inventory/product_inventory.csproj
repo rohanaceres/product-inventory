@@ -78,6 +78,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="controller\AbstractController.cs" />
     <Compile Include="controller\BuyController.cs" />
     <Compile Include="controller\InventoryController.cs" />
     <Compile Include="MainWindow.xaml.cs">
