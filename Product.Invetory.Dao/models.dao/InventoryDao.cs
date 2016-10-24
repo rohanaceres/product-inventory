@@ -45,7 +45,7 @@ namespace Product.Inventory.Dao.models.dao
                             while (rdr.Read())
                             {
                                 if (product.Id == rdr.GetInt32(0))
-                                    return rdr.GetInt32(3); // Quantity
+                                    return rdr.GetInt32(2); // Quantity
                                
                             }
                         }

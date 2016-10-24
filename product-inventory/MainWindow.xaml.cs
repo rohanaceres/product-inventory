@@ -24,8 +24,9 @@ namespace product_inventory
     public partial class MainWindow : Window
     {
         
-        BuyController buyController;
-        InventoryController inventoryController;    
+        public BuyController buyController;
+
+        public InventoryController inventoryController;    
         public Dictionary<ProductModel,long> Products { get; set; }
 
         public MainWindow()
@@ -44,21 +45,22 @@ namespace product_inventory
                 this.cBProducts.Items.Add(p);
         }
 
-        // Add items selected
+        // Add items selected in cart 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             //buyController.teste();            
             ProductModel p = new ProductModel();
 
             p.Name = this.cBProducts.SelectedItem.ToString();
-            p.Id = buyController.Search_Id_Products(p.Name);
-
             long amount = long.Parse(this.tBAmount.Text);
+        
             try
             {
+                p.Id = buyController.Search_Id_Products(p.Name); // Get Id Product
+
                 if (inventoryController.CheckAmount(p, amount))
                 {
-                    products.Add(p,amount);
+                    Products.Add(p,amount);
                     this.sendToCart();
                 }         
                 else
@@ -66,10 +68,8 @@ namespace product_inventory
             }
             catch (Exception)
             {
-
                 throw;
             }
- 
         }
         // Put items in cart
         private void sendToCart()

@@ -11,6 +11,7 @@ namespace Product.Inventory.Dao.models.dao
 {
     public class ProductDao : AbstractDao
     {
+        //TODO refazer abstrata
         public override void Delete()
         {
             throw new NotImplementedException();
@@ -84,7 +85,7 @@ namespace Product.Inventory.Dao.models.dao
             //}
 
         }
-        public int Search_Id_Product(String name)
+        public int Search_Id_Product(string name)
         {
             try
             {
@@ -92,7 +93,7 @@ namespace Product.Inventory.Dao.models.dao
                 {
                     con.Open();
 
-                    string stm = "SELECT * FROM Product WHERE Name="+name;
+                    string stm = "SELECT * FROM Product WHERE Name= '"+name+"'";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(stm, con))
                     {
