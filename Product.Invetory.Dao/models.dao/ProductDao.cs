@@ -23,33 +23,33 @@ namespace Product.Inventory.Dao.models.dao
 
         public override void Search()
         {
-            try
-            {
-                using (SQLiteConnection con = new SQLiteConnection(cs))
-                {
-                    con.Open();
+            //try
+            //{
+            //    using (SQLiteConnection con = new SQLiteConnection(cs))
+            //    {
+            //        con.Open();
 
-                    string stm = "SELECT * FROM product WHERE Id=1";
+            //        string stm = "SELECT * FROM product WHERE Id=1";
 
-                    using (SQLiteCommand cmd = new SQLiteCommand(stm, con))
-                    {
-                        using (SQLiteDataReader rdr = cmd.ExecuteReader())
-                        {
-                            while (rdr.Read())
-                            {
-                                Console.WriteLine(rdr.GetInt32(0) + "  " + rdr.GetString(1));
-                            }
-                        }
-                    }
+            //        using (SQLiteCommand cmd = new SQLiteCommand(stm, con))
+            //        {
+            //            using (SQLiteDataReader rdr = cmd.ExecuteReader())
+            //            {
+            //                while (rdr.Read())
+            //                {
+            //                    Console.WriteLine(rdr.GetInt32(0) + "  " + rdr.GetString(1));
+            //                }
+            //            }
+            //        }
 
-                    con.Close();
-                }
-            }
-            catch (Exception)
-            {
+            //        con.Close();
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
            
 
             //string search = "select * from Product where Id = 1";
@@ -84,6 +84,40 @@ namespace Product.Inventory.Dao.models.dao
             //}
 
         }
+        public int Search_Id_Product(String name)
+        {
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection(cs))
+                {
+                    con.Open();
+
+                    string stm = "SELECT * FROM Product WHERE Name="+name;
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(stm, con))
+                    {
+                        using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                        {
+                            while (rdr.Read())
+                            {
+                                return rdr.GetInt32(0);
+                            }
+                        }
+                    }
+
+                    con.Close();
+                }
+            }
+            
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return -1;
+
+        }
+
         public List<ProductModel> GetProducts()
         {
             List<ProductModel> products = new List<ProductModel>();

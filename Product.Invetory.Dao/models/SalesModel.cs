@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Product.Inventory.Dao.models
 {
-    public class ClientModel
+    public class SalesModel
     {
-        public string Name { get; set; }
-        public string Address { get; set; }
+        public int Id { get; set; }
+
+        public ProductModel product { get; set; }
+
+        public int Amount { get; set; }
     }
 }

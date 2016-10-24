@@ -104,6 +104,8 @@
     <Compile Include="controller\AbstractController.cs" />
     <Compile Include="controller\BuyController.cs" />
     <Compile Include="controller\InventoryController.cs" />
+    <Compile Include="controller\ProductController.cs" />
+    <Compile Include="controller\SalesController.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -83,9 +83,10 @@
     <Compile Include="models.dao\ConnectionDB.cs" />
     <Compile Include="models.dao\InventoryDao.cs" />
     <Compile Include="models.dao\ProductDao.cs" />
-    <Compile Include="models\ClientModel.cs" />
+    <Compile Include="models.dao\SalesDao.cs" />
     <Compile Include="models\InventoryModel.cs" />
     <Compile Include="models\ProductModel.cs" />
+    <Compile Include="models\SalesModel.cs" />
     <Compile Include="ProductInventoryDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -15,28 +15,21 @@ namespace product_inventory.controller
     
     public class BuyController
     {
-        //MainWindow mainView;
-
+        ProductDao productdao = new ProductDao();
         public List<ProductModel> Products { get; set; }
-
-        //public Dictionary<ProductModel, long> Products { get; set; }
 
         public BuyController()
         {
             this.Products = new List<ProductModel>();
-        }
-        //public BuyController(MainWindow mainView)
-        //{
-        //    this.mainView = mainView;
-        //    this.Products = new Dictionary<ProductModel, long>();
-        //}
-
-        ProductDao productdao = new ProductDao();
-
-
+        }      
+     
         public List<ProductModel> GetListProducts()
         {
             return productdao.GetProducts();
+        }
+        public int Search_Id_Products(String name)
+        {
+            return productdao.Search_Id_Product(name);
         }
         public void teste()
         {

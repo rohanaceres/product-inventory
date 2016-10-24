@@ -26,6 +26,10 @@ namespace Product.Inventory.Dao.models
             this.Name = Name;
             
         }
+        public ProductModel()
+        {
+
+        }
         public override string ToString()
         {
             return this.Name;

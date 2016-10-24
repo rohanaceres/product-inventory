@@ -8,7 +8,8 @@ namespace Product.Inventory.Dao.models
 {
     public class InventoryModel
     {
-        public List<ProductModel> Products { get; set; }
+        public int Id { get; set; }
+        public ProductModel Product { get; set; }
         public int Amount { get; set; }
     }
 }
