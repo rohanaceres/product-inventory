@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Product.Inventory.Dao.models;
 using product_inventory.controller;
 
+
 namespace product_inventory
 {
     /// <summary>
@@ -27,22 +28,20 @@ namespace product_inventory
         public MainWindow()
         {
             InitializeComponent();
+            this.buyController = new BuyController();
             this.Initializer();
+           
             //this.Products = new Dictionary<ProductModel, long>();
-<<<<<<< HEAD
-            
-            buyController = new BuyController(this);
-=======
-            buyController = new BuyController();
->>>>>>> eec8b7b5c2f104ed80855a32435cd9d53b952090
+
         }
         
         public Dictionary<ProductModel, long> Products { get; set; }
         // initialize comboBox 
         public void Initializer()
         {
-            for(int i =1; i<=5;i++)
-                this.cBProducts.Items.Add("produto"+i);
+            //List<ProductModel> products = buyController.GetListProducts();
+            foreach (ProductModel p in buyController.GetListProducts())
+                this.cBProducts.Items.Add(p);
         }
 
         // Add items selected
@@ -63,14 +62,14 @@ namespace product_inventory
            
         }
         // Put items in cart
-        //private void sendToCart()
-        //{
-        //    this.tBCart.Text = "ITEM                Quantity \n";
-        //    foreach(KeyValuePair<ProductModel,long> items in Products)
-        //    {
-        //        this.tBCart.Text +=  items.Key + "                " +  items.Value + "\n";
-        //    }
-        //}
+        private void sendToCart()
+        {
+            this.tBCart.Text = "ITEM                Quantity \n";
+            //foreach (ProductModel items in Products)
+            //{
+            //    this.tBCart.Text += items.Key + "                " + items.Value + "\n";
+            //}
+        }
 
         private void btnBuy_Click(object sender, RoutedEventArgs e)
         {

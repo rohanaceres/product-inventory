@@ -38,3 +38,13 @@ C:\Users\Leandro\Documents\workspaceC#\product-inventory\product-inventory\obj\D
 C:\Users\Leandro\Documents\workspaceC#\product-inventory\product-inventory\obj\Debug\product-inventory.g.resources
 C:\Users\Leandro\Documents\workspaceC#\product-inventory\product-inventory\obj\Debug\product_inventory.Properties.Resources.resources
 C:\Users\Leandro\Documents\workspaceC#\product-inventory\product-inventory\obj\Debug\product_inventory.csproj.GenerateResource.Cache
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\ProductInventoryDB.mdf
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\ProductInventoryDB_log.ldf
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\EntityFramework.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\System.Data.SQLite.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\EntityFramework.xml
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lguimaraes\Documents\workspace\product-inventory\product-inventory\bin\Debug\System.Data.SQLite.xml

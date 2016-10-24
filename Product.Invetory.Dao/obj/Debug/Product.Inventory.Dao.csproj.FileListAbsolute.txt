@@ -11,3 +11,14 @@ C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\ob
 C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\bin\Debug\ProductInventoryDB.mdf
 C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\bin\Debug\ProductInventoryDB_log.ldf
 C:\Users\Leandro\Documents\workspaceC#\product-inventory\Product.Invetory.Dao\bin\Debug\Product.Invetory.Dao.dll.config
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\ProductInventoryDB.mdf
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\ProductInventoryDB_log.ldf
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\Product.Invetory.Dao.dll.config
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\EntityFramework.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\System.Data.SQLite.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\EntityFramework.xml
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lguimaraes\Documents\workspace\product-inventory\Product.Invetory.Dao\bin\Debug\System.Data.SQLite.xml

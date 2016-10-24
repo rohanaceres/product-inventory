@@ -16,7 +16,15 @@ namespace product_inventory.controller
     public class BuyController
     {
         //MainWindow mainView;
-        public Dictionary<ProductModel, long> Products { get; set; }
+
+        public List<ProductModel> Products { get; set; }
+
+        //public Dictionary<ProductModel, long> Products { get; set; }
+
+        public BuyController()
+        {
+            this.Products = new List<ProductModel>();
+        }
         //public BuyController(MainWindow mainView)
         //{
         //    this.mainView = mainView;
@@ -25,9 +33,14 @@ namespace product_inventory.controller
 
         ProductDao productdao = new ProductDao();
 
+
+        public List<ProductModel> GetListProducts()
+        {
+            return productdao.GetProducts();
+        }
         public void teste()
         {
-            productdao.Search();
+            productdao.teste();
         }
         // Valid amount field
         //public bool isValid {
