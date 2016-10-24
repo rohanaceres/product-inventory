@@ -29,8 +29,12 @@ namespace product_inventory
             InitializeComponent();
             this.Initializer();
             //this.Products = new Dictionary<ProductModel, long>();
+<<<<<<< HEAD
             
             buyController = new BuyController(this);
+=======
+            buyController = new BuyController();
+>>>>>>> eec8b7b5c2f104ed80855a32435cd9d53b952090
         }
         
         public Dictionary<ProductModel, long> Products { get; set; }
@@ -44,7 +48,8 @@ namespace product_inventory
         // Add items selected
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            buyController.SendToCart();
+            buyController.teste();
+            //buyController.SendToCart();
             
             //ProductModel p = new ProductModel();
 
