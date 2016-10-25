@@ -31,10 +31,10 @@ namespace product_inventory.controller
         {
             return productdao.Search_Id_Product(name);
         }
-        public void teste()
-        {
-            productdao.teste();
-        }
+        //public void teste()
+        //{
+        //    productdao.teste();
+        //}
         // Valid amount field
         //public bool isValid {
         //    get{

@@ -9,22 +9,22 @@ namespace Product.Inventory.Dao.models.dao
 {
     public class InventoryDao : AbstractDao
     {
-        public override void Delete()
+        public override void Delete(Object obj)
         {
             throw new NotImplementedException();
         }
 
-        public override void Save()
+        public override void Save(Object obj)
         {
             throw new NotImplementedException();
         }
 
-        public override void Search()
+        public override void Search(int id)
         {
             throw new NotImplementedException();
         }
 
-        public override void Update()
+        public override void Update(Object obj)
         {
             throw new NotImplementedException();
         }
@@ -44,8 +44,11 @@ namespace Product.Inventory.Dao.models.dao
                         {
                             while (rdr.Read())
                             {
+                                /*TODO: Implementar de outra forma o retorno(indice por nome na tabela)
+                                filtrar na query*/
+                                
                                 if (product.Id == rdr.GetInt32(0))
-                                    return rdr.GetInt32(2); // Quantity
+                                    return rdr.GetInt32(2); // Quantity  
                                
                             }
                         }

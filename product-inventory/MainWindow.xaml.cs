@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Product.Inventory.Dao.models;
 using product_inventory.controller;
+using Product.Inventory.Dao.Utils;
 
 
 namespace product_inventory
@@ -38,22 +39,28 @@ namespace product_inventory
             this.Initializer();            
         }
         
-        // initialize comboBox 
+        // initialize comboBox with products from inventory
         public void Initializer()
-        {          
-            foreach (ProductModel p in buyController.GetListProducts())
+        {
+            List<ProductModel> products = buyController.GetListProducts();
+
+            foreach (ProductModel p in products)
                 this.cBProducts.Items.Add(p);
         }
 
         // Add items selected in cart 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            //buyController.teste();            
+        {                       
             ProductModel p = new ProductModel();
 
             p.Name = this.cBProducts.SelectedItem.ToString();
+            
             long amount = long.Parse(this.tBAmount.Text);
-        
+
+            //TODO: Arrumar validacao do campo Amount
+            //if (!IntegerUtils.OnlyInteger(amount.ToString()))
+            //    MessageBox.Show("Apenas números");
+                
             try
             {
                 p.Id = buyController.Search_Id_Products(p.Name); // Get Id Product
@@ -62,6 +69,7 @@ namespace product_inventory
                 {
                     Products.Add(p,amount);
                     this.sendToCart();
+                    
                 }         
                 else
                     MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountProduct(p));

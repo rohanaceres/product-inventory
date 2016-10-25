@@ -12,17 +12,17 @@ namespace Product.Inventory.Dao.models.dao
     public class ProductDao : AbstractDao
     {
         //TODO refazer abstrata
-        public override void Delete()
+        public override void Delete(Object obj)
         {
             throw new NotImplementedException();
         }
 
-        public override void Save()
+        public override void Save(Object obj)
         {
             throw new NotImplementedException();
         }
 
-        public override void Search()
+        public override void Search(int id)
         {
             //try
             //{
@@ -101,6 +101,7 @@ namespace Product.Inventory.Dao.models.dao
                         {
                             while (rdr.Read())
                             {
+                                //TODO:filtrar na query
                                 return rdr.GetInt32(0);
                             }
                         }
@@ -153,7 +154,7 @@ namespace Product.Inventory.Dao.models.dao
                 throw;
             }
         }
-        public override void Update()
+        public override void Update(Object obj)
         {
             throw new NotImplementedException();
         }

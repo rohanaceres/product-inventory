@@ -8,22 +8,22 @@ namespace Product.Inventory.Dao.models.dao
 {
     public class SalesDao : AbstractDao
     {
-        public override void Delete()
+        public override void Delete(object obj)
         {
             throw new NotImplementedException();
         }
 
-        public override void Save()
+        public override void Save(object obj)
         {
             throw new NotImplementedException();
         }
 
-        public override void Search()
+        public override void Search(int id)
         {
             throw new NotImplementedException();
         }
 
-        public override void Update()
+        public override void Update(object obj)
         {
             throw new NotImplementedException();
         }
