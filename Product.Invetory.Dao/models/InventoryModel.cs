@@ -11,6 +11,7 @@ namespace Product.Inventory.Dao.models
         public int Id { get; set; }
         public ProductModel Product { get; set; }
         public long Amount { get; set; }
+      
 
         public InventoryModel(ProductModel product, long amount)
         {

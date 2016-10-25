@@ -41,24 +41,13 @@ namespace product_inventory
         // initialize comboBox with products from inventory
         public void Initializer()
         {
+            //TODO: Inicializar no app.xaml.cs
+
             List<ProductModel> products = buyController.GetListProducts();
 
             foreach (ProductModel p in products)
                 this.xcBProducts.Items.Add(p);
-            //DataGridTextColumn c1 = new DataGridTextColumn();
-            //c1.Header = "Num";
-            //c1.Binding = new Binding("Num");
-            //c1.Width = 100;
-            //this.xdataGrid.Columns.Add(c1);
-            //DataGridTextColumn c2 = new DataGridTextColumn();
-            //c2.Header = "Num";
-            //c2.Binding = new Binding("Num");
-            //c2.Width = 50;
-            //this.xdataGrid.Columns.Add(c2);
-
-            //ProductModel p1 = new ProductModel(1, "product1");
-            //this.xlistBox.Items.Add(new InventoryModel(p1, 20));
-            //this.xlistBox.Items.Add(new InventoryModel(p1, 20));
+            
         }
 
         // Add items selected in cart 
@@ -66,40 +55,42 @@ namespace product_inventory
         {
             ProductModel p = new ProductModel();
 
+            //Get datas from form 
             p.Name = this.xcBProducts.SelectedItem.ToString();
-
             long amount = long.Parse(this.xtBAmount.Text);
 
-            //TODO: Arrumar validacao do campo Amount
-            //if (!IntegerUtils.OnlyInteger(amount.ToString()))
+            //It validates input in amount
+            //if (!IntegerUtils.OnlyInteger(this.xtBAmount.Text))
+            //{
             //    MessageBox.Show("Apenas números");
+            //}
 
             try
             {
-                //p.Id = buyController.Search_Id_Products(p.Name); // Get Id Product
+                p.Id = buyController.Search_Id_Products(p.Name); // Get Id Product | The query in inventoryDao.getAmountItem needs this property
 
-                InventoryModel itemNovo = new InventoryModel(p, amount);
+                InventoryModel itemNovo = new InventoryModel(p, amount); // Item created with form information(ComboBox and TextBox)
 
-                if (this.ExistsInCart(itemNovo))
-                    this.updateAmountOfAProductInCart(itemNovo);
-                                                   
-                else               
-                    this.SendToCart(itemNovo);
+                //Check the quantity of an item in inventory is greater than that required
+                if (inventoryController.CheckAmountInInventory(itemNovo, Products) && Products.Items!=null)
+                {
+                    //If the item exists, that item is updated instead of adding again
+                    if (this.ExistsInCart(itemNovo))
+                        this.updateAmountOfAProductInCart(itemNovo);
 
-                //if (inventoryController.CheckAmount(p, amount))
-                //{
-                //    Products.Add(p,amount);
-                //    this.sendToCart();
-                //    //inventoryController.
-                //}         
-                //else
-                //    MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountProduct(p));
+                    else
+                        this.SendToCart(itemNovo);
+                }
+
+                else
+                    MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountItemInInventory(itemNovo));
             }
             catch (Exception)
             {
                 throw;
             }
         }
+        // Clean and update the items in cart
         private void updateCart()
         {
             this.xlistBox.Items.Clear();
@@ -115,6 +106,7 @@ namespace product_inventory
 
             Products.Items.Add(item);
         }
+        // Find the item and update your amount
         private void updateAmountOfAProductInCart(InventoryModel item)
         {       
             foreach (InventoryModel itemInInventory in Products.Items)   
@@ -125,6 +117,7 @@ namespace product_inventory
             this.updateCart();                                                      
                       
         }
+       // Check if cart contains that item
         private bool ExistsInCart(InventoryModel item)
         {
             if (Products.Items==null)
@@ -143,6 +136,11 @@ namespace product_inventory
         {
             //TODO: verifica estoque 
             //Verifica no banco o que é necessário
+        }
+
+        private void xlistBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("selecionado");
         }
 
         private void tBAmount_TextChanged(object sender, TextChangedEventArgs e)

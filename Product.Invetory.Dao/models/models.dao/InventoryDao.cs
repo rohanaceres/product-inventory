@@ -55,7 +55,7 @@ namespace Product.Inventory.Dao.models.dao
             
             string query = "UPDATE Inventory SET  Id_Product= '"+item.Id +"', Quantity = '"+item.Amount +"'"; 
         }
-        public long GetAmountProduct(ProductModel product)
+        public long GetAmountItem(InventoryModel item)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace Product.Inventory.Dao.models.dao
                                 /*TODO: Implementar de outra forma o retorno(indice por nome na tabela)
                                 filtrar na query*/
                                 
-                                if (product.Id == rdr.GetInt32(0))
+                                if (item.Product.Id == rdr.GetInt32(0))
                                     return rdr.GetInt32(2); // Quantity  
                                
                             }

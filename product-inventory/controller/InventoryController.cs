@@ -14,16 +14,34 @@ namespace product_inventory.controller
 
         public List<ProductModel> Products { get; set; }
 
-        public long GetAmountProduct(ProductModel product)
+        public long GetAmountItemInInventory(InventoryModel item)
         {
-            return inventoryDao.GetAmountProduct(product);
+            return inventoryDao.GetAmountItem(item);
         }
-
-        public bool CheckAmount(ProductModel product, long amount)
+        
+        public bool CheckAmountInInventory(InventoryModel item, SalesModel products)
         {
-            if (this.GetAmountProduct(product) > amount)
+            InventoryModel itemInCart = this.GetItemSelectedInCart(item, products);
+            
+            if (itemInCart == null && this.GetAmountItemInInventory(item) >= item.Amount)
                 return true;
-            return false;
+            else
+            {
+                if (itemInCart == null && this.GetAmountItemInInventory(item) <= item.Amount)
+                    return false;
+                else if(this.GetAmountItemInInventory(item) >= item.Amount + itemInCart.Amount)
+                    return true;
+                return false;
+            }
+            
+        }
+        // Get Item Selected and find it in cart
+        private InventoryModel GetItemSelectedInCart (InventoryModel item,SalesModel products)
+        {
+            foreach (InventoryModel itemInInventory in products.Items)
+                if (itemInInventory.Product.Name.Equals(item.Product.Name))
+                    return itemInInventory;
+            return null;
         }
 
         public void UpdateQuantityOfAProduct(ProductModel product)
