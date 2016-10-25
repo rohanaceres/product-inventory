@@ -13,5 +13,16 @@ namespace product_inventory
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+        }
+        //public void Initializer()
+        //{
+        //    List<ProductModel> products = buyController.GetListProducts();
+
+        //    foreach (ProductModel p in products)
+        //        this.cBProducts.Items.Add(p);
+        //}
     }
 }

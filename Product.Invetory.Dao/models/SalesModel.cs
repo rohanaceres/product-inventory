@@ -10,8 +10,13 @@ namespace Product.Inventory.Dao.models
     {
         public int Id { get; set; }
 
-        public ProductModel product { get; set; }
+        public List<InventoryModel> Items { get; set; }
 
         public int Amount { get; set; }
+
+        public SalesModel()
+        {
+            this.Items = new List<InventoryModel>();
+        }
     }
 }

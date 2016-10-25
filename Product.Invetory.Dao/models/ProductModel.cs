@@ -13,17 +13,17 @@ namespace Product.Inventory.Dao.models
         public string Description { get; set; }
         public double Price { get; set; }
 
-        public ProductModel(int Id,String Name, String Description, double Price)
+        public ProductModel(int id,String name, String description, double price)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Description = Description;
-            this.Price = Price;
+            this.Id = id;
+            this.Name = name;
+            this.Description = description;
+            this.Price = price;
         }
-        public ProductModel(int Id,String Name)
+        public ProductModel(int id,String name)
         {
-            this.Id = Id;
-            this.Name = Name;
+            this.Id = id;
+            this.Name = name;
             
         }
         public ProductModel()

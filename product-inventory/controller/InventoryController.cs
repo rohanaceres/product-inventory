@@ -26,5 +26,10 @@ namespace product_inventory.controller
             return false;
         }
 
+        public void UpdateQuantityOfAProduct(ProductModel product)
+        {
+            //inventoryDao.Update((ProductModel)product);
+        }
+
     }
 }

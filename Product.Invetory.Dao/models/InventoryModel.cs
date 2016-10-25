@@ -10,6 +10,17 @@ namespace Product.Inventory.Dao.models
     {
         public int Id { get; set; }
         public ProductModel Product { get; set; }
-        public int Amount { get; set; }
+        public long Amount { get; set; }
+
+        public InventoryModel(ProductModel product, long amount)
+        {
+            this.Product = product;
+            this.Amount = amount;
+        }
+
+        public override string ToString()
+        {
+            return this.Product.Name + " --------------  " + this.Amount;
+        }
     }
 }

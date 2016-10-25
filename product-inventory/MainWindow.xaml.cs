@@ -24,71 +24,121 @@ namespace product_inventory
     /// </summary>
     public partial class MainWindow : Window
     {
-        
         public BuyController buyController;
 
-        public InventoryController inventoryController;    
-        public Dictionary<ProductModel,long> Products { get; set; }
+        public InventoryController inventoryController;
+        public SalesModel Products { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
             this.buyController = new BuyController();
             this.inventoryController = new InventoryController();
-            this.Products = new Dictionary<ProductModel, long>();
-            this.Initializer();            
+            this.Products = new SalesModel();
+            this.Initializer();
         }
-        
+
         // initialize comboBox with products from inventory
         public void Initializer()
         {
             List<ProductModel> products = buyController.GetListProducts();
 
             foreach (ProductModel p in products)
-                this.cBProducts.Items.Add(p);
+                this.xcBProducts.Items.Add(p);
+            //DataGridTextColumn c1 = new DataGridTextColumn();
+            //c1.Header = "Num";
+            //c1.Binding = new Binding("Num");
+            //c1.Width = 100;
+            //this.xdataGrid.Columns.Add(c1);
+            //DataGridTextColumn c2 = new DataGridTextColumn();
+            //c2.Header = "Num";
+            //c2.Binding = new Binding("Num");
+            //c2.Width = 50;
+            //this.xdataGrid.Columns.Add(c2);
+
+            //ProductModel p1 = new ProductModel(1, "product1");
+            //this.xlistBox.Items.Add(new InventoryModel(p1, 20));
+            //this.xlistBox.Items.Add(new InventoryModel(p1, 20));
         }
 
         // Add items selected in cart 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {                       
+        {
             ProductModel p = new ProductModel();
 
-            p.Name = this.cBProducts.SelectedItem.ToString();
-            
-            long amount = long.Parse(this.tBAmount.Text);
+            p.Name = this.xcBProducts.SelectedItem.ToString();
+
+            long amount = long.Parse(this.xtBAmount.Text);
 
             //TODO: Arrumar validacao do campo Amount
             //if (!IntegerUtils.OnlyInteger(amount.ToString()))
             //    MessageBox.Show("Apenas números");
-                
+
             try
             {
-                p.Id = buyController.Search_Id_Products(p.Name); // Get Id Product
+                //p.Id = buyController.Search_Id_Products(p.Name); // Get Id Product
 
-                if (inventoryController.CheckAmount(p, amount))
-                {
-                    Products.Add(p,amount);
-                    this.sendToCart();
-                    
-                }         
-                else
-                    MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountProduct(p));
+                InventoryModel itemNovo = new InventoryModel(p, amount);
+
+                if (this.ExistsInCart(itemNovo))
+                    this.updateAmountOfAProductInCart(itemNovo);
+                                                   
+                else               
+                    this.SendToCart(itemNovo);
+
+                //if (inventoryController.CheckAmount(p, amount))
+                //{
+                //    Products.Add(p,amount);
+                //    this.sendToCart();
+                //    //inventoryController.
+                //}         
+                //else
+                //    MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountProduct(p));
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        // Put items in cart
-        private void sendToCart()
+        private void updateCart()
         {
-            this.tBCart.Text = "ITEM                Quantity \n";
-            foreach (KeyValuePair<ProductModel,long> items in Products)
-            {
-                this.tBCart.Text += items.Key + "                " + items.Value + "\n";
-            }
+            this.xlistBox.Items.Clear();
+
+            foreach(InventoryModel itemInInventory in Products.Items)
+                this.xlistBox.Items.Add(itemInInventory);
         }
 
+        // Put items in cart
+        private void SendToCart(InventoryModel item)
+        {
+            this.xlistBox.Items.Add(item);
+
+            Products.Items.Add(item);
+        }
+        private void updateAmountOfAProductInCart(InventoryModel item)
+        {       
+            foreach (InventoryModel itemInInventory in Products.Items)   
+                        
+                if (item.Product.Name.Equals(itemInInventory.Product.Name))                                                      
+                    itemInInventory.Amount += item.Amount;
+
+            this.updateCart();                                                      
+                      
+        }
+        private bool ExistsInCart(InventoryModel item)
+        {
+            if (Products.Items==null)
+                return false;
+
+            else
+            {
+                foreach (InventoryModel itemInInventory in Products.Items)               
+                    if (item.Product.Name.Equals(itemInInventory.Product.Name))
+                        return true;                     
+            }
+
+            return false;
+        }
         private void btnBuy_Click(object sender, RoutedEventArgs e)
         {
             //TODO: verifica estoque 

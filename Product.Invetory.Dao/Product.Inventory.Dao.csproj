@@ -79,11 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Log\LogRequest.cs" />
-    <Compile Include="models.dao\AbstractDao.cs" />
-    <Compile Include="models.dao\ConnectionDB.cs" />
-    <Compile Include="models.dao\InventoryDao.cs" />
-    <Compile Include="models.dao\ProductDao.cs" />
-    <Compile Include="models.dao\SalesDao.cs" />
+    <Compile Include="models\models.dao\ConnectionDB.cs" />
+    <Compile Include="models\models.dao\InventoryDao.cs" />
+    <Compile Include="models\models.dao\ProductDao.cs" />
+    <Compile Include="models\models.dao\SalesDao.cs" />
     <Compile Include="models\InventoryModel.cs" />
     <Compile Include="models\ProductModel.cs" />
     <Compile Include="models\SalesModel.cs" />

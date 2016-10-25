@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:product_inventory"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="483.218" Width="784.17">
     <Grid>
-        <Button x:Name="btnBuy" Content="Buy" HorizontalAlignment="Left" Margin="30,251,0,0" VerticalAlignment="Top" Width="457" Height="40" Click="btnBuy_Click"/>
+        <Button x:Name="xbtnBuy" Content="Buy" HorizontalAlignment="Left" Margin="30,251,0,0" VerticalAlignment="Top" Width="457" Height="40" Click="btnBuy_Click"/>
         <Label x:Name="lproduct" Content="Product" HorizontalAlignment="Left" Margin="32,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.371,0.23"/>
         <Label x:Name="lamount" Content="Amount" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.531,0.118"/>
-        <TextBox x:Name="tBAmount" HorizontalAlignment="Left" Height="23" Margin="118,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="tBAmount_TextChanged"/>
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="163,125,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
-        <ComboBox x:Name="cBProducts" HorizontalAlignment="Left" Margin="118,40,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tBCart" HorizontalAlignment="Left" Height="177" Margin="284,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203"/>
+        <TextBox x:Name="xtBAmount" HorizontalAlignment="Left" Height="23" Margin="118,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="tBAmount_TextChanged"/>
+        <Button x:Name="xbtnAdd" Content="Add" HorizontalAlignment="Left" Margin="163,125,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
+        <ComboBox x:Name="xcBProducts" HorizontalAlignment="Left" Margin="118,40,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tBCart" HorizontalAlignment="Left" Height="173" Margin="643,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123"/>
+        <ListBox x:Name="xlistBox" HorizontalAlignment="Left" Height="178" Margin="279,36,0,0" VerticalAlignment="Top" Width="208"/>
+
 
     </Grid>
 </Window>
