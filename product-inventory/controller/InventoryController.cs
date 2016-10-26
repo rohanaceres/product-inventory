@@ -11,8 +11,13 @@ namespace product_inventory.controller
    public  class InventoryController
     {
         InventoryDao inventoryDao = new InventoryDao();
-
+        public MainWindow MainWindow { get; set; }
         public List<ProductModel> Products { get; set; }
+
+        public InventoryController(MainWindow mainWindow)
+        {
+            this.MainWindow = mainWindow;
+        }
 
         public long GetAmountItemInInventory(InventoryModel item)
         {
@@ -43,7 +48,7 @@ namespace product_inventory.controller
                     return itemInInventory;
             return null;
         }
-
+        
         public void UpdateQuantityOfAProduct(ProductModel product)
         {
             //inventoryDao.Update((ProductModel)product);

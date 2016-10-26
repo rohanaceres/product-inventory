@@ -86,11 +86,6 @@
     <Compile Include="Models\InventoryModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\SalesModel.cs" />
-    <Compile Include="ProductInventoryDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductInventoryDBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -98,15 +93,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Utils\IntegerUtils.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ProductInventoryDB.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProductInventoryDB_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DependentUpon>ProductInventoryDB.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -126,17 +112,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="ProductInventoryDBDataSet.xsc">
-      <DependentUpon>ProductInventoryDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ProductInventoryDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ProductInventoryDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ProductInventoryDBDataSet.xss">
-      <DependentUpon>ProductInventoryDBDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

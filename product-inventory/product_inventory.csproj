@@ -101,7 +101,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\BuyController.cs" />
+    <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\InventoryController.cs" />
     <Compile Include="Controller\SalesController.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -136,15 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DatabaseRegisterProducts.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DatabaseRegisterProducts_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DatabaseRegisterProducts.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

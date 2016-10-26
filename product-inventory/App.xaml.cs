@@ -19,7 +19,7 @@ namespace product_inventory
         }
         //public void Initializer()
         //{
-        //    List<ProductModel> products = buyController.GetListProducts();
+        //    List<ProductModel> products = productController.GetListProducts();
 
         //    foreach (ProductModel p in products)
         //        this.cBProducts.Items.Add(p);
