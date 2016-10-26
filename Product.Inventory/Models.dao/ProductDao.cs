@@ -96,15 +96,13 @@ namespace Product.Inventory.Dao.models.dao
 
                     con.Close();
                 }
-            }
-            
+            }            
             catch (Exception)
             {
 
                 throw;
             }
             return -1;
-
         }
 
         public List<ProductModel> GetProducts()

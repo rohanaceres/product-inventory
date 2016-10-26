@@ -11,23 +11,30 @@ namespace Product.Inventory.Dao.models.dao
     public class SalesDao : ConnectionDB
     {
 
-        public void save(SalesModel sales)
+        public bool save(InventoryModel item)
         {
-            //using (SqlConnection connection = new SqlConnection(cs))
-            //using (SqlCommand command = connection.CreateCommand())
-            //{
-            //    command.CommandText = "INSERT INTO Inventory (FirstName, Address, City) VALUES(@ln, @fn, @add, @cit)";
+            try
+            {
+                using (SQLiteConnection con = new SQLiteConnection(cs))
+                {
+                    con.Open();
+                    
+                    string query = "INSERT INTO Sales(Id_Product,Quantity) VALUES('"+ item.Product.Id+"','"+item.Amount +"')";
 
-            //    command.Parameters.AddWithValue("@ln", lastName);
-            //    command.Parameters.AddWithValue("@fn", firstName);
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
 
+                }
 
-            //    connection.Open();
+                return true;
+            }
+            catch (Exception)
+            {
 
-            //    command.ExecuteNonQuery();
-
-            //    connection.Close();
-            //}
+                throw;
+            }
 
         }
     }

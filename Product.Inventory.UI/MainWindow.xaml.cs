@@ -46,25 +46,8 @@ namespace Product.Inventory
 
         // Add items selected in cart 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            ProductModel p = new ProductModel();
-
-            //Get datas from form 
-            p.Name = this.xcBProducts.SelectedItem.ToString();
-
-            long amount = long.Parse(this.xtBAmount.Text);
-
-            //It validates input in amount
-            //if (!IntegerUtils.OnlyInteger(this.xtBAmount.Text))
-            //{
-            //    MessageBox.Show("Apenas números");
-            //}
-
-            p.Id = productController.Search_Id_Products(p.Name); // Get Id Product | The query in inventoryDao.getAmountItem needs this property
-
-            InventoryModel itemNovo = new InventoryModel(p, amount); // Item created with form information(ComboBox and TextBox)
-
-            salesController.AddItemInCart(itemNovo);
+        {                  
+            salesController.AddItemInCart();
             
         }
 
@@ -79,10 +62,11 @@ namespace Product.Inventory
         }
 
         private void xbtnBuy_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: verifica estoque
-            //Verifica no banco o que é necessário
-            buyController.BuyProducts();
+        {                     
+        if(salesController.Products!=null)
+            foreach(InventoryModel item in salesController.Products.Items)            
+                buyController.BuyProducts(item);
+                             
         }
     }
 }

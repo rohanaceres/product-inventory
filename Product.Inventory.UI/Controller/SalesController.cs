@@ -10,6 +10,8 @@ namespace Product.Inventory.Controller
     public class SalesController
     {
         public InventoryController inventoryController { get; set; }
+
+        public ProductController productController { get; set; }
         public SalesModel Products { get; set; }
         public MainWindow MainWindow { get; private set; }
 
@@ -17,30 +19,66 @@ namespace Product.Inventory.Controller
         {
             this.MainWindow = mainWindow;
             this.inventoryController = new InventoryController(mainWindow);
+            this.productController = new ProductController(mainWindow);
             this.Products = new SalesModel();
         }
-        public void AddItemInCart(InventoryModel item)
+        public void AddItemInCart()
         {
-            try
+
+            if (this.ValidRequest())
             {
-                //Check the quantity of an item in inventory is greater than that required
-                if (inventoryController.CheckAmountInInventory(item, this.Products) && Products.Items != null)
+                ProductModel p = new ProductModel();
+
+                //Get datas from form 
+                p.Name = this.MainWindow.xcBProducts.SelectedItem.ToString();
+                long amount = long.Parse(this.MainWindow.xtBAmount.Text);
+
+                p.Id = productController.Search_Id_Products(p.Name); // Get Id Product | The query in inventoryDao.getAmountItem needs this property
+
+                InventoryModel newItem = new InventoryModel(p, amount);
+
+                try
                 {
-                    //If the item exists, that item is updated instead of adding again
-                    if (this.ExistsInCart(item))
-                        this.UpdateAmountOfAProductInCart(item);
+                    //Check the quantity of an item in inventory is greater than that required
+                    if (inventoryController.CheckAmountInInventory(newItem, this.Products) && Products.Items != null)
+                    {
+                        //If the item exists, that item is updated instead of adding again
+                        if (this.ExistsInCart(newItem))
+                            this.UpdateAmountOfAProductInCart(newItem);
 
-                    else
-                        this.SendToCart(item);
+                        else
+                            this.SendToCart(newItem);
+                    }
+
+                    //else                
+                    //    this.MainWindow.MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountItemInInventory(item));                                  
                 }
-
-                //else                
-                //    this.MainWindow.MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountItemInInventory(item));                                  
+                catch (Exception)
+                {
+                    throw;
+                }
             }
-            catch (Exception)
+            else
             {
-                throw;
+                //this.MainWindow.MessaBox();
             }
+            
+        }
+        private bool ValidRequest()
+        {
+            if(this.MainWindow.xcBProducts.SelectedItem==null || this.MainWindow.xtBAmount.Text.Equals(""))           
+            {
+                return false;
+            }
+            return true;
+            
+            //It validates input in amount
+            //if (!IntegerUtils.OnlyInteger(this.xtBAmount.Text))
+            //{
+            //    MessageBox.Show("Apenas números");
+            //}
+
+            
         }
         // Check if cart contains that item
         private bool ExistsInCart(InventoryModel item)
