@@ -79,13 +79,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Log\LogRequest.cs" />
-    <Compile Include="models\models.dao\ConnectionDB.cs" />
-    <Compile Include="models\models.dao\InventoryDao.cs" />
-    <Compile Include="models\models.dao\ProductDao.cs" />
-    <Compile Include="models\models.dao\SalesDao.cs" />
-    <Compile Include="models\InventoryModel.cs" />
-    <Compile Include="models\ProductModel.cs" />
-    <Compile Include="models\SalesModel.cs" />
+    <Compile Include="Models\Models.dao\ConnectionDB.cs" />
+    <Compile Include="Models\Models.dao\InventoryDao.cs" />
+    <Compile Include="Models\Models.dao\ProductDao.cs" />
+    <Compile Include="Models\Models.dao\SalesDao.cs" />
+    <Compile Include="Models\InventoryModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\SalesModel.cs" />
     <Compile Include="ProductInventoryDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,7 +97,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Sql.cs" />
     <Compile Include="Utils\IntegerUtils.cs" />
   </ItemGroup>
   <ItemGroup>

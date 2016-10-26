@@ -13,47 +13,51 @@ namespace Product.Inventory.Dao.models.dao
     {
 
 
-        public int Search(int id) {
+        //public int Search(int id) {
 
-            try
-            {
-                using (SQLiteConnection con = new SQLiteConnection(cs))
-                {
-                    con.Open();
+        //    //try
+        //    //{
+        //    //    using (SQLiteConnection con = new SQLiteConnection(cs))
+        //    //    {
+        //    //        con.Open();
 
-                    string query = "SELECT * FROM Inventory WHERE Id = " + id;
+        //    //        string query = "SELECT * FROM Inventory WHERE Id = " + id;
 
-                    using (SQLiteCommand cmd = new SQLiteCommand(query, con))
-                    {
-                        using (SQLiteDataReader rdr = cmd.ExecuteReader())
-                        {
-                            while (rdr.Read())
-                            {
+        //    //        using (SQLiteCommand cmd = new SQLiteCommand(query, con))
+        //    //        {
+        //    //            using (SQLiteDataReader rdr = cmd.ExecuteReader())
+        //    //            {
+        //    //                while (rdr.Read())
+        //    //                {
                                 
                                                                
 
-                            }
-                        }
-                    }
+        //    //                }
+        //    //            }
+        //    //        }
 
-                    con.Close();
-                    return -1;
-                }
-            }
-            catch (Exception)
-            {
+        //    //        con.Close();
+        //    //        return -1;
+        //    //    }
+        //    //}
+        //    //catch (Exception)
+        //    //{
 
-                throw;
-            }
+        //    //    throw;
+        //    //}
 
             
-        }
+        //}
     
-
-        public void Update(InventoryModel item)
+       public void save(InventoryModel item)
         {
             
-            string query = "UPDATE Inventory SET  Id_Product= '"+item.Id +"', Quantity = '"+item.Amount +"'"; 
+        }
+        public void Update(InventoryModel item)
+        {
+           
+
+                string query = "UPDATE Inventory SET  Id_Product= '"+item.Id +"', Quantity = '"+item.Amount +"'"; 
         }
         public long GetAmountItem(InventoryModel item)
         {
@@ -63,9 +67,9 @@ namespace Product.Inventory.Dao.models.dao
                 {
                     con.Open();
 
-                    string stm = "SELECT * FROM Inventory i JOIN Product p ON i.Id_Product=p.Id ";
+                    string query = "SELECT * FROM Inventory i JOIN Product p ON i.Id_Product=p.Id ";
 
-                    using (SQLiteCommand cmd = new SQLiteCommand(stm, con))
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, con))
                     {
                         using (SQLiteDataReader rdr = cmd.ExecuteReader())
                         {
