@@ -19,11 +19,22 @@ namespace Product.Inventory.Controller
             this.MainWindow = mainWindow;
         }
 
+        /// <summary>
+        /// This method get the amount of the item in the inventory.
+        /// </summary>
+        /// <param name="item"> Parameter item requires an 'InventoryModel' argument</param>
+        /// <returns>The method returns a long</returns>
         public long GetAmountItemInInventory(InventoryModel item)
         {
             return inventoryDao.GetAmountItem(item);
         }
-        
+
+        /// <summary>
+        /// This method check if the amount of an item added into cart is greater than amount of an item in the inventory.
+        /// </summary>
+        /// <param name="item"> Parameter item requires an 'InventoryModel' argument</param>
+        /// /// <param name="products"> Parameter products requires a 'SalesModel' argument</param>
+        /// <returns>The method returns a bool</returns>
         public bool CheckAmountInInventory(InventoryModel item, SalesModel products)
         {
             InventoryModel itemInCart = this.GetItemSelectedInCart(item, products);
@@ -40,18 +51,19 @@ namespace Product.Inventory.Controller
             }
             
         }
-        // Get Item Selected and find it in cart
+        /// <summary>
+        /// This method check if the item is contained in the cart. If so, that item is returned.
+        /// </summary>
+        /// <param name="item"> Parameter item requires an 'InventoryModel' argument</param>
+        /// /// <param name="products"> Parameter products requires a 'SalesModel' argument</param>
+        /// <returns>The method returns an InventoryModel</returns>
+       
         private InventoryModel GetItemSelectedInCart (InventoryModel item,SalesModel products)
         {
             foreach (InventoryModel itemInInventory in products.Items)
                 if (itemInInventory.Product.Name.Equals(item.Product.Name))
                     return itemInInventory;
             return null;
-        }
-        
-        public void UpdateQuantityOfAProduct(ProductModel product)
-        {
-            //inventoryDao.Update((ProductModel)product);
         }
 
     }

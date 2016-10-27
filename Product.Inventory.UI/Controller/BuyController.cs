@@ -11,9 +11,9 @@ namespace Product.Inventory.Controller
 
         public InventoryController inventoryController { get; set; }
 
-        InventoryDao inventoryDao = new InventoryDao();
+        private InventoryDao inventoryDao = new InventoryDao();
 
-        SalesDao salesDao = new SalesDao();
+        private SalesDao salesDao = new SalesDao();
 
         public SalesController salesController { get; set; }
 
@@ -23,13 +23,16 @@ namespace Product.Inventory.Controller
             this.inventoryController = new InventoryController(mainWindow);
             this.salesController = new SalesController(mainWindow);
         }
-
+        /// <summary>
+        /// This method save an item(in Sales Table) and update(in Inventory Table) it in the inventory.
+        /// </summary>
+        /// <param name="item"> Parameter item requires an InventoryModel argument</param>    
         public void BuyProducts(InventoryModel item)
         {
 
             bool save = salesDao.save(item);
 
-            this.SubstractAmountFromTheInventory(item);
+            this.SubstractsAmountFromTheInventory(item);
 
             bool update = inventoryDao.Update(item);
 
@@ -41,7 +44,11 @@ namespace Product.Inventory.Controller
 
 
         }
-        private void SubstractAmountFromTheInventory(InventoryModel item)
+        /// <summary>
+        /// This method subtracts the amount of a purchased item by item in inventory
+        /// </summary>
+        /// <param name="item"> Parameter item requires an InventoryModel argument</param>
+        private void SubstractsAmountFromTheInventory(InventoryModel item)
         {
             long amountInInventory = inventoryController.GetAmountItemInInventory(item);
 

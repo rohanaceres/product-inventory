@@ -13,29 +13,18 @@ namespace Product.Inventory.Dao.models.dao
 
         public bool save(InventoryModel item)
         {
+            string query = "INSERT INTO Sales(Id_Product,Quantity) VALUES('" + item.Product.Id + "','" + item.Amount + "')";
+
             try
             {
-                using (SQLiteConnection con = new SQLiteConnection(cs))
-                {
-                    con.Open();
-                    
-                    string query = "INSERT INTO Sales(Id_Product,Quantity) VALUES('"+ item.Product.Id+"','"+item.Amount +"')";
-
-                    using (SQLiteCommand cmd = new SQLiteCommand(query, con))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-
-                }
-
-                return true;
+                this.ExecuteQuery(query);
             }
             catch (Exception)
             {
-
                 throw;
             }
 
+            return true;
         }
         public List<InventoryModel> GetItemsSold()
         {
@@ -69,12 +58,13 @@ namespace Product.Inventory.Dao.models.dao
                    
                 }
             }
+
             catch (Exception)
             {
 
                 throw;
             }
-            return null;
+            
         }  
     }
 }

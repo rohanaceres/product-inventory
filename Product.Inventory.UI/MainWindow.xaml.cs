@@ -23,7 +23,8 @@ namespace Product.Inventory
 
         public SalesController salesController;
 
-        public BuyController buyController;  
+        public BuyController buyController; 
+         
 
         public MainWindow()
         {
@@ -56,16 +57,7 @@ namespace Product.Inventory
             
         }
 
-        private void xlistBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            MessageBox.Show("selecionado");
-        }
-
-        private void tBAmount_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+       
         private void xbtnBuy_Click(object sender, RoutedEventArgs e)
         {                     
         if(salesController.Products!=null)
@@ -80,8 +72,20 @@ namespace Product.Inventory
             this.historicView = new HistoricView();
             this.historicView.Show();
             this.historicView.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             this.salesController.ShowListOfItemsInBought();
             
         }
+
+        private void xlistBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("selecionado");
+        }
+
+        private void tBAmount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
     }
 }

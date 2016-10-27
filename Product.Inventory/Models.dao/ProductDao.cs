@@ -6,72 +6,7 @@ namespace Product.Inventory.Dao.models.dao
 {
     public class ProductDao : ConnectionDB
     {
-        //TODO refazer abstrata
        
-
-        public void Search(int id)
-        {
-            //try
-            //{
-            //    using (SQLiteConnection con = new SQLiteConnection(cs))
-            //    {
-            //        con.Open();
-
-            //        string stm = "SELECT * FROM product WHERE Id=1";
-
-            //        using (SQLiteCommand cmd = new SQLiteCommand(stm, con))
-            //        {
-            //            using (SQLiteDataReader rdr = cmd.ExecuteReader())
-            //            {
-            //                while (rdr.Read())
-            //                {
-            //                    Console.WriteLine(rdr.GetInt32(0) + "  " + rdr.GetString(1));
-            //                }
-            //            }
-            //        }
-
-            //        con.Close();
-            //    }
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
-           
-
-            //string search = "select * from Product where Id = 1";
-            //try {
-
-            //    conn.Open();
-            //    cmd.Connection = conn;
-
-            //    cmd.CommandText = search;
-
-            //    OleDbDataReader reader = cmd.ExecuteReader();
-
-            //    int count = 0;
-
-            //    while (reader.Read())
-            //    {
-            //        count++;
-
-            //        //Guarda os dados recebidos do BD
-
-            //        System.Diagnostics.Debug.WriteLine(reader["Id"].ToString());
-            //        System.Diagnostics.Debug.WriteLine(reader["Name"].ToString());
-
-            //    }
-
-            //    conn.Close();
-            //}
-            //catch (Exception)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(" Dados Inválidos. Transação negada");
-            //    throw;
-            //}
-
-        }
         public int Search_Id_Product(string name)
         {
             try
@@ -139,14 +74,6 @@ namespace Product.Inventory.Dao.models.dao
                 throw;
             }
         }
-        //public override void Update(Object obj)
-        //{
-        //    throw new NotImplementedException();
-        //}
-        public void teste()
-        {
-            //this.SetConnection();
-            this.TestConnection();
-        }
+       
     }
 }

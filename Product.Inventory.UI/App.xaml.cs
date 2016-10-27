@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Product.Inventory.Dao.models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,13 +17,14 @@ namespace product_inventory
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            //this.Initializer();
         }
-        //public void Initializer()
-        //{
-        //    List<ProductModel> products = productController.GetListProducts();
+        public void Initializer()
+        {
+            //List<ProductModel> products = productController.GetListProducts();
 
-        //    foreach (ProductModel p in products)
-        //        this.cBProducts.Items.Add(p);
-        //}
+            //foreach (ProductModel p in products)
+            //    this.cBProducts.Items.Add(p);
+        }
     }
 }

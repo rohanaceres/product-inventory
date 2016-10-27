@@ -78,7 +78,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Log\LogRequest.cs" />
     <Compile Include="Models.dao\ConnectionDB.cs" />
     <Compile Include="Models.dao\InventoryDao.cs" />
     <Compile Include="Models.dao\ProductDao.cs" />
