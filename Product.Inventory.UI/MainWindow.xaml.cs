@@ -79,7 +79,7 @@ namespace Product.Inventory
 
         private void xlistBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("selecionado");
+            
         }
 
         private void tBAmount_TextChanged(object sender, TextChangedEventArgs e)
@@ -87,5 +87,20 @@ namespace Product.Inventory
 
         }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void xBtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+          InventoryModel item = (InventoryModel) this.xlistBox.SelectedItem;
+            salesController.DeleteItemInCart(item);
+        }
+
+        private void xbtnClear_Click(object sender, RoutedEventArgs e)
+        {
+            salesController.ClearCart();
+        }
     }
 }

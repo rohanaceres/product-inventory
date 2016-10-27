@@ -166,6 +166,11 @@ namespace Product.Inventory.Controller
         /// This method cleans the list of items in the textBox from HistoricView.
         /// </summary>
       
+        public void DeleteItemInCart(InventoryModel item)
+        {
+            this.Products.Items.Remove(item);
+            this.UpdateCart();
+        }
         private void ClearHistoricOfItemsBought()
         {
             this.MainWindow.historicView.xTextBoxHistoric.Text = "";

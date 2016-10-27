@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="353.633" Width="531.056">
     <Grid>
-        <Button x:Name="xbtnBuy" Content="Buy" HorizontalAlignment="Left" Margin="30,251,0,0" VerticalAlignment="Top" Width="457" Height="40" Click="xbtnBuy_Click"/>
+        <Button x:Name="xbtnBuy" Content="Buy" HorizontalAlignment="Left" Margin="30,264,0,0" VerticalAlignment="Top" Width="457" Height="40" Click="xbtnBuy_Click"/>
         <Label x:Name="lproduct" Content="Product" HorizontalAlignment="Left" Margin="32,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.371,0.23"/>
         <Label x:Name="lamount" Content="Amount" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.531,0.118"/>
         <TextBox x:Name="xtBAmount" HorizontalAlignment="Left" Height="23" Margin="118,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="tBAmount_TextChanged"/>
@@ -15,6 +15,8 @@
         <ComboBox x:Name="xcBProducts" HorizontalAlignment="Left" Margin="118,40,0,0" VerticalAlignment="Top" Width="120"/>
         <ListBox x:Name="xlistBox" HorizontalAlignment="Left" Height="178" Margin="279,36,0,0" VerticalAlignment="Top" Width="208" SelectionChanged="xlistBox_SelectionChanged"/>
         <Button x:Name="xBtnViewList" Content="View List&#xD;&#xA;" HorizontalAlignment="Left" Margin="32,125,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Height="20"/>
+        <Button x:Name="xBtnDelete" Content="Delete" HorizontalAlignment="Left" Margin="412,226,0,0" VerticalAlignment="Top" Width="75" Click="xBtnDelete_Click"/>
+        <Button x:Name="xbtnClear" Content="Clear" HorizontalAlignment="Left" Margin="279,226,0,0" VerticalAlignment="Top" Width="75" Click="xbtnClear_Click"/>
 
 
     </Grid>
