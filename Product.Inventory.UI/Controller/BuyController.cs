@@ -1,6 +1,6 @@
 ﻿using Product.Inventory.Dao.models;
 using Product.Inventory.Dao.models.dao;
-
+using System.Windows;
 
 namespace Product.Inventory.Controller
 {
@@ -15,21 +15,30 @@ namespace Product.Inventory.Controller
 
         SalesDao salesDao = new SalesDao();
 
+        public SalesController salesController { get; set; }
+
         public BuyController(MainWindow mainWindow)
         {
             this.MainWindow = mainWindow;
             this.inventoryController = new InventoryController(mainWindow);
+            this.salesController = new SalesController(mainWindow);
         }
 
         public void BuyProducts(InventoryModel item)
         {
 
-            salesDao.save(item);
+            bool save = salesDao.save(item);
 
             this.SubstractAmountFromTheInventory(item);
 
-            inventoryDao.Update(item);
-      
+            bool update = inventoryDao.Update(item);
+
+            if (save && update)
+            {
+                MessageBox.Show("Successful");
+                this.salesController.ClearCart();
+            }
+
 
         }
         private void SubstractAmountFromTheInventory(InventoryModel item)

@@ -10,7 +10,7 @@ namespace Product.Inventory.Controller
 {
    public  class InventoryController
     {
-        InventoryDao inventoryDao = new InventoryDao();
+        private InventoryDao inventoryDao = new InventoryDao();
         public MainWindow MainWindow { get; set; }
         public List<ProductModel> Products { get; set; }
 

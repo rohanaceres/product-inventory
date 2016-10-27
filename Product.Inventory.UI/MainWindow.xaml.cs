@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System;
 using Product.Inventory;
 using Product.Inventory.Dao.models;
+using Product.Inventory.UI;
 
 namespace Product.Inventory
 {
@@ -13,6 +14,9 @@ namespace Product.Inventory
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public HistoricView historicView { get; set; }
+
         public ProductController productController;
 
         public InventoryController inventoryController;
@@ -28,7 +32,8 @@ namespace Product.Inventory
             this.productController = new ProductController(this);
             this.inventoryController = new InventoryController(this);
             this.salesController = new SalesController(this);
-            this.buyController = new BuyController(this);     
+            this.buyController = new BuyController(this);          
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;    
 
             this.Initializer();
         }
@@ -67,6 +72,16 @@ namespace Product.Inventory
             foreach(InventoryModel item in salesController.Products.Items)            
                 buyController.BuyProducts(item);
                              
+        }
+
+        //ViewList
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.historicView = new HistoricView();
+            this.historicView.Show();
+            this.historicView.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.salesController.ShowListOfItemsInBought();
+            
         }
     }
 }

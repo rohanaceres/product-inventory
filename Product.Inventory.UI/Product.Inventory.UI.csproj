@@ -93,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="HistoricView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +109,9 @@
     <Compile Include="Controller\ProductController.cs" />
     <Compile Include="Controller\InventoryController.cs" />
     <Compile Include="Controller\SalesController.cs" />
+    <Compile Include="HistoricView.xaml.cs">
+      <DependentUpon>HistoricView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

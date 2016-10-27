@@ -14,6 +14,7 @@
         <Button x:Name="xbtnAdd" Content="Add" HorizontalAlignment="Left" Margin="163,125,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
         <ComboBox x:Name="xcBProducts" HorizontalAlignment="Left" Margin="118,40,0,0" VerticalAlignment="Top" Width="120"/>
         <ListBox x:Name="xlistBox" HorizontalAlignment="Left" Height="178" Margin="279,36,0,0" VerticalAlignment="Top" Width="208" SelectionChanged="xlistBox_SelectionChanged"/>
+        <Button x:Name="xBtnViewList" Content="View List&#xD;&#xA;" HorizontalAlignment="Left" Margin="32,125,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Height="20"/>
 
 
     </Grid>

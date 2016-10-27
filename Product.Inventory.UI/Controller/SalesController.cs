@@ -1,19 +1,26 @@
 ﻿using Product.Inventory.Dao.models;
 using System;
-using System.Collections.Generic;
+using Product.Inventory.Dao.models.dao;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Product.Inventory.Controller
 {
     public class SalesController
     {
+
+        private SalesDao salesDao = new SalesDao();
         public InventoryController inventoryController { get; set; }
 
         public ProductController productController { get; set; }
         public SalesModel Products { get; set; }
         public MainWindow MainWindow { get; private set; }
+
+
 
         public SalesController(MainWindow mainWindow)
         {
@@ -50,8 +57,12 @@ namespace Product.Inventory.Controller
                             this.SendToCart(newItem);
                     }
 
-                    //else                
-                    //    this.MainWindow.MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountItemInInventory(item));                                  
+                    else
+                    {
+                        MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountItemInInventory(newItem));
+                        //this.MainWindow.base.MessageBox.Show("Quantidade superior a do estoque. Quantidade no estoque: " + inventoryController.GetAmountItemInInventory(item)); 
+                    }
+
                 }
                 catch (Exception)
                 {
@@ -111,12 +122,34 @@ namespace Product.Inventory.Controller
 
         }
         // Clean and update the items in cart
-        private void UpdateCart()
+        public void UpdateCart()
         {
-            this.MainWindow.xlistBox.Items.Clear();
+            this.ClearCart();
 
             foreach (InventoryModel itemInInventory in Products.Items)
                 this.MainWindow.xlistBox.Items.Add(itemInInventory);
+        }
+
+        public void ClearCart()
+        {
+            this.MainWindow.xlistBox.Items.Clear();
+            this.ClearItemsInList();
+            
+        }
+        private void ClearItemsInList()
+        {
+            this.Products.Items.Clear();
+        }
+        public void ShowListOfItemsInBought()
+        {
+            this.ClearHistoricOfItemsBought();
+
+            this.MainWindow.historicView.xTextBoxHistoric.Text = "   ITEM                Quantity \r\n";
+
+            List<InventoryModel> items = this.salesDao.GetItemsSold();
+
+            foreach (InventoryModel item in items)
+                this.MainWindow.historicView.xTextBoxHistoric.Text += "" + item.Product.Name + "                 " + item.Amount+"\r\n";
         }
         // Put items in cart
         private void SendToCart(InventoryModel item)
@@ -125,6 +158,9 @@ namespace Product.Inventory.Controller
 
             Products.Items.Add(item);
         }
-
+        private void ClearHistoricOfItemsBought()
+        {
+            this.MainWindow.historicView.xTextBoxHistoric.Text = "";
+        }
     }
 }
