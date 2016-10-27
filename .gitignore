@@ -73,6 +73,7 @@ Properties/launchSettings.json
 *.pidb
 *.svclog
 *.scc
+*.bd.db
 
 # Chutzpah Test files
 _Chutzpah*
