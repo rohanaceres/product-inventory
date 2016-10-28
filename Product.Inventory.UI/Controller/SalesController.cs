@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Product.Inventory.UI.ViewModel;
 
 namespace Product.Inventory.Controller
 {
@@ -73,6 +74,7 @@ namespace Product.Inventory.Controller
             }
             
         }
+        
         /// <summary>
         /// This method valid the request. Check if the comboBox was selected  and in the amount field are only numbers.
         /// </summary>    

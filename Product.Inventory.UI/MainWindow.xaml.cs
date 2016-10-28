@@ -6,6 +6,7 @@ using System;
 using Product.Inventory;
 using Product.Inventory.Dao.models;
 using Product.Inventory.UI;
+using Product.Inventory.UI.ViewModel;
 
 namespace Product.Inventory
 {
@@ -52,9 +53,8 @@ namespace Product.Inventory
 
         // Add items selected in cart 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {                  
-            salesController.AddItemInCart();
-            
+        {
+            salesController.AddItemInCart();       
         }
        
         private void xbtnBuy_Click(object sender, RoutedEventArgs e)

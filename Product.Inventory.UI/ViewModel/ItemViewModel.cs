@@ -9,7 +9,13 @@ namespace Product.Inventory.UI.ViewModel
 {
     public class ItemViewModel
     {
-        public ProductModel product { get; set; }
+        public ProductModel Product { get; set; }
         public long Amount { get; set; }
+
+        public ItemViewModel(ProductModel product, long amount)
+        {
+            this.Product = product;
+            this.Amount = amount;
+        }
     }
 }
