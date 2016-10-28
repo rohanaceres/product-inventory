@@ -129,7 +129,7 @@ namespace Product.Inventory.Controller
 
         }
         /// <summary>
-        /// This method cleans and update the items in cart.
+        /// This method cleans and update the items in the cart.
         /// </summary>
         public void UpdateCart()
         {
