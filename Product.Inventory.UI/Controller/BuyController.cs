@@ -7,13 +7,12 @@ namespace Product.Inventory.Controller
     
     public class BuyController
     {
-        public MainWindow MainWindow { get; set; }
-
-        public InventoryController inventoryController { get; set; }
-
         private InventoryDao inventoryDao = new InventoryDao();
 
         private SalesDao salesDao = new SalesDao();
+        public MainWindow MainWindow { get; set; }
+
+        public InventoryController inventoryController { get; set; }
 
         public SalesController salesController { get; set; }
 
@@ -32,7 +31,7 @@ namespace Product.Inventory.Controller
 
             bool save = salesDao.save(item);
 
-            this.SubstractsAmountFromTheInventory(item);
+            this.SubstractsAmountFromInventory(item);
 
             bool update = inventoryDao.Update(item);
 
@@ -42,18 +41,16 @@ namespace Product.Inventory.Controller
                 this.salesController.ClearCart();
             }
 
-
         }
         /// <summary>
         /// This method subtracts the amount of a purchased item by item in inventory
         /// </summary>
         /// <param name="item"> Parameter item requires an InventoryModel argument</param>
-        private void SubstractsAmountFromTheInventory(InventoryModel item)
+        private void SubstractsAmountFromInventory(InventoryModel item)
         {
             long amountInInventory = inventoryController.GetAmountItemInInventory(item);
 
-            item.Amount = amountInInventory - item.Amount;
-                        
+            item.Amount = amountInInventory - item.Amount;                        
         }
     }
 }

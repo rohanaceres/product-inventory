@@ -30,7 +30,7 @@ namespace Product.Inventory.Controller
         }
 
         /// <summary>
-        /// This method check if the amount of an item added into cart is greater than amount of an item in the inventory.
+        /// This method check if the amount of an item added into cart is more than amount of an item in the inventory.
         /// </summary>
         /// <param name="item"> Parameter item requires an 'InventoryModel' argument</param>
         /// /// <param name="products"> Parameter products requires a 'SalesModel' argument</param>

@@ -69,7 +69,7 @@ namespace Product.Inventory.Controller
             }
             else
             {
-                //this.MainWindow.MessaBox();
+                //MessaBox.Show();
             }
             
         }
@@ -183,7 +183,6 @@ namespace Product.Inventory.Controller
         {
             this.MainWindow.xlistBox.Items.Clear();
             this.ClearItemsInList();
-
         }
         /// <summary>
         /// This method cleans the list of items from SalesModel.

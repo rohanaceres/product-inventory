@@ -56,7 +56,6 @@ namespace Product.Inventory
             salesController.AddItemInCart();
             
         }
-
        
         private void xbtnBuy_Click(object sender, RoutedEventArgs e)
         {                     
