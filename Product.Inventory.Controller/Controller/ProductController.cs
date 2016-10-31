@@ -18,12 +18,10 @@ namespace Product.Inventory.Controller
         private ProductDao productdao = new ProductDao();
         public List<ProductModel> Products { get; set; }
 
-        public MainWindow MainWindow { get; set; }
-
-        public ProductController(MainWindow mainWindow)
+        public ProductController()
         {
             this.Products = new List<ProductModel>();
-            this.MainWindow = mainWindow;
+          
         }
         /// <summary>
         /// This method get a list of products

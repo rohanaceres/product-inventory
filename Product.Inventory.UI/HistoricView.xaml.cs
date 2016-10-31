@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Product.Inventory.BusinessLogic;
+using Product.Inventory.Dao.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +21,33 @@ namespace Product.Inventory.UI
     /// </summary>
     public partial class HistoricView : Window
     {
+
+        public HistoricList HistoricList { get; set; }
         public HistoricView()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.HistoricList = new HistoricList();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
+        }
+        public void ShowListOfItemsBought()
+        {
+            this.ClearHistoricOfItemsBought();
+
+            this.xTextBoxHistoric.Text = "   ITEM                Quantity \r\n";
+
+            List<InventoryModel> items = HistoricList.GetItemsSold();
+
+            foreach (InventoryModel item in items)
+               xTextBoxHistoric.Text += "" + item.Product.Name + "                 " + item.Amount + "\r\n";
+        }
+        private void ClearHistoricOfItemsBought()
+        {
+            xTextBoxHistoric.Text = "";
         }
     }
 }

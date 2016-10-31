@@ -1,24 +1,40 @@
-﻿using System;
+﻿using Product.Inventory.Dao.models;
+using Product.Inventory.Dao.models.dao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Product.Inventory.Dao.models.dao;
-using Product.Inventory.Dao.models;
+
 
 namespace Product.Inventory.Controller
 {
    public  class InventoryController
     {
         private InventoryDao inventoryDao = new InventoryDao();
-        public MainWindow MainWindow { get; set; }
         public List<ProductModel> Products { get; set; }
 
-        public InventoryController(MainWindow mainWindow)
+        public InventoryController()
         {
-            this.MainWindow = mainWindow;
+            
         }
+        //private bool ValidRequest()
+        //{
 
+        //    if (this.MainWindow.xcBProducts.SelectedItem == null || this.MainWindow.xtBAmount.Text.Equals(""))
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+
+        //    //It validates input in amount
+        //    //if (!IntegerUtils.OnlyInteger(this.xtBAmount.Text))
+        //    //{
+        //    //    MessageBox.Show("Apenas números");
+        //    //}
+
+
+        //}
         /// <summary>
         /// This method get the amount of the item in the inventory.
         /// </summary>

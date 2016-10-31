@@ -6,7 +6,7 @@ using System;
 using Product.Inventory;
 using Product.Inventory.Dao.models;
 using Product.Inventory.UI;
-using Product.Inventory.UI.ViewModel;
+using Product.Inventory.BusinessLogic;
 
 namespace Product.Inventory
 {
@@ -18,25 +18,20 @@ namespace Product.Inventory
 
         public HistoricView historicView { get; set; }
 
-        public ProductController productController;
+        public Cart Cart { get; set; }
 
-        public InventoryController inventoryController;
+        public BuyItems BuyItems { get; set; }
 
-        public SalesController salesController;
-
-        public BuyController buyController; 
-         
+        ProductController productController;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            this.productController = new ProductController(this);
-            this.inventoryController = new InventoryController(this);
-            this.salesController = new SalesController(this);
-            this.buyController = new BuyController(this);          
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;    
-
+            this.productController = new ProductController();
+                  
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            BuyItems = new BuyItems();
+            Cart = new Cart(this.xlistBox);
             this.Initializer();
         }
 
@@ -51,20 +46,32 @@ namespace Product.Inventory
                 this.xcBProducts.Items.Add(p);            
         }
 
-        // Add items selected in cart 
+        // Add items selected in Cart 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            salesController.AddItemInCart();       
+            ProductModel p = new ProductModel();
+
+            //Get datas from form 
+            p.Name = this.xcBProducts.SelectedItem.ToString();
+            long amount = long.Parse(this.xtBAmount.Text);
+
+            p.Id = productController.Search_Id_Products(p.Name); // Get Id Product | The query in inventoryDao.getAmountItem needs this property
+
+            InventoryModel newItem = new InventoryModel(p, amount);
+
+            Cart.AddItemInCart(newItem);
+           
+            //salesController.AddItemInCart();            
         }
        
         private void xbtnBuy_Click(object sender, RoutedEventArgs e)
-        {                     
-        if(salesController.Products!=null)
-            foreach(InventoryModel item in salesController.Products.Items)            
-                buyController.BuyProducts(item);
+        {
+            if (Cart.Products != null)
+                foreach (InventoryModel item in Cart.Products.Items)
+                    BuyItems.BuyProducts(item);                
                              
         }
-
+       
         //ViewList
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -72,7 +79,8 @@ namespace Product.Inventory
             this.historicView.Show();
             this.historicView.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            this.salesController.ShowListOfItemsInBought();
+            //this.salesController.ShowListOfItemsInBought();
+            this.historicView.ShowListOfItemsBought();
             
         }
 
@@ -94,12 +102,12 @@ namespace Product.Inventory
         private void xBtnDelete_Click(object sender, RoutedEventArgs e)
         {
           InventoryModel item = (InventoryModel) this.xlistBox.SelectedItem;
-            salesController.DeleteItemInCart(item);
+            Cart.DeleteItemInCart(item);
         }
 
         private void xbtnClear_Click(object sender, RoutedEventArgs e)
         {
-            salesController.ClearCart();
+            Cart.ClearCart();
         }
     }
 }
