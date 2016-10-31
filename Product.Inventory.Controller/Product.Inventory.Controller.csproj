@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -38,6 +39,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\BuyController.cs" />
@@ -48,6 +50,10 @@
     <Compile Include="ViewModel\ItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Product.Inventory.BusinessLogic\Product.Inventory.BusinessLogic.csproj">
+      <Project>{380A8B9A-3F79-49CB-8851-78CBB0D1C732}</Project>
+      <Name>Product.Inventory.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Product.Inventory\Product.Inventory.csproj">
       <Project>{FF44FFB8-5366-48BC-8BC4-3FB39B0EA232}</Project>
       <Name>Product.Inventory</Name>

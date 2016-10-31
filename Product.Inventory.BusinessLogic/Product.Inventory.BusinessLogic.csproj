@@ -48,10 +48,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Product.Inventory.Controller\Product.Inventory.Controller.csproj">
-      <Project>{B238433B-16A1-477F-A0C8-9EBB558E2C48}</Project>
-      <Name>Product.Inventory.Controller</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Product.Inventory\Product.Inventory.csproj">
       <Project>{FF44FFB8-5366-48BC-8BC4-3FB39B0EA232}</Project>
       <Name>Product.Inventory</Name>

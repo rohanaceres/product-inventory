@@ -1,20 +1,17 @@
-﻿using Product.Inventory.Controller;
-using Product.Inventory.Dao.models;
-using System;
+﻿using Product.Inventory.Dao.models;
+using Product.Inventory.Dao.models.dao;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Product.Inventory.BusinessLogic
 {
     public class HistoricList
     {
-        SalesController salesController;
+
+        SalesDao salesDao = new SalesDao();
 
         public HistoricList()
         {
-            this.salesController = new SalesController();
+            
         }
 
         /// <summary>
@@ -23,7 +20,7 @@ namespace Product.Inventory.BusinessLogic
        
         public List<InventoryModel> GetItemsSold()
         {
-            return this.salesController.GetItemsSold();
+            return this.salesDao.GetItemsSold();
         }
 
     }

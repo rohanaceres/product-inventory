@@ -1,27 +1,18 @@
-﻿using Product.Inventory.Controller;
-using Product.Inventory.Dao.models;
+﻿using Product.Inventory.Dao.models;
 using Product.Inventory.Dao.models.dao;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Product.Inventory.BusinessLogic
 {
     public class BuyItems
     {
-        InventoryController inventoryController;
+        InventoryDao inventoryDao;
 
-        SalesController salesController;
-
-        BuyController buyController;
+        public Cart Cart { get; set; }
 
         public BuyItems()
         {
-            this.salesController = new SalesController();
-            this.buyController = new BuyController();
-            this.inventoryController = new InventoryController();
+            this.inventoryDao = new InventoryDao();
+            this.Cart = new Cart();
         }
         public void BuyProducts(InventoryModel item)
         {
@@ -47,7 +38,7 @@ namespace Product.Inventory.BusinessLogic
         /// <param name="item"> Parameter item requires an InventoryModel argument</param>
         private void SubstractsAmountFromInventory(InventoryModel item)
         {
-            long amountInInventory = inventoryController.GetAmountItemInInventory(item);
+            long amountInInventory = Cart.GetAmountItemInInventory(item);
 
             item.Amount = amountInInventory - item.Amount;
         }

@@ -24,14 +24,26 @@ namespace Product.Inventory
 
         ProductController productController;
 
+        SalesController salesController;
+
+        BuyController buyController;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            this.buyController = new BuyController();
+
             this.productController = new ProductController();
-                  
+
+            this.salesController = new SalesController();
+            
+                              
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             BuyItems = new BuyItems();
-            Cart = new Cart(this.xlistBox);
+            Cart = new Cart();
+
             this.Initializer();
         }
 
@@ -57,18 +69,16 @@ namespace Product.Inventory
 
             p.Id = productController.Search_Id_Products(p.Name); // Get Id Product | The query in inventoryDao.getAmountItem needs this property
 
-            InventoryModel newItem = new InventoryModel(p, amount);
+            InventoryModel item = new InventoryModel(p, amount);
 
-            Cart.AddItemInCart(newItem);
-           
-            //salesController.AddItemInCart();            
+            salesController.AddItemsInCart(item, this.xlistBox);   
+                       
         }
-       
         private void xbtnBuy_Click(object sender, RoutedEventArgs e)
         {
-            if (Cart.Products != null)
+            if (salesController.Products != null)
                 foreach (InventoryModel item in Cart.Products.Items)
-                    BuyItems.BuyProducts(item);                
+                    this.buyController.BuyProduct(item);               
                              
         }
        
