@@ -158,9 +158,9 @@ namespace Product.Inventory.BusinessLogic
         /// This method cleans the list of items in the textBox from Cart.
         /// </summary>
 
-        public void ClearCart()
+        public void ClearCart(ListBox xListItemsInCart)
         {
-            //this.XListInCart.Items.Clear();
+            xListItemsInCart.Items.Clear();
             this.ClearItemsInList();
         }
         /// <summary>

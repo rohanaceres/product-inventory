@@ -112,12 +112,12 @@ namespace Product.Inventory
         private void xBtnDelete_Click(object sender, RoutedEventArgs e)
         {
           InventoryModel item = (InventoryModel) this.xlistBox.SelectedItem;
-            Cart.DeleteItemInCart(item);
+            salesController.DeleteItem(item, this.xlistBox);
         }
 
         private void xbtnClear_Click(object sender, RoutedEventArgs e)
         {
-            Cart.ClearCart();
+            Cart.ClearCart(this.xlistBox);
         }
     }
 }

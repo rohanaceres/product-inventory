@@ -45,6 +45,15 @@ namespace Product.Inventory.Controller
         {
             return salesDao.GetItemsSold();
         }
+        public void DeleteItem(InventoryModel item, ListBox xListItemsInCart)
+        {
+            Cart.DeleteItemInCart(item);
+            this.UpdateCart(xListItemsInCart);
+        }
+        public void ClearCart(ListBox xListItemsInCart)
+        {
+            Cart.ClearCart(xListItemsInCart);
+        }
 
     }
 }
